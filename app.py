@@ -6,8 +6,14 @@ import sqlite3
 app = Flask(__name__)
 
 # Load trained model
-model = pickle.load(open("model.pkl", "rb"))
-vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
+app = Flask(__name__)
+
+# Load trained model safely
+with open("model.pkl", "rb") as f:
+    model = pickle.load(f)
+
+with open("vectorizer.pkl", "rb") as f:
+    vectorizer = pickle.load(f)
 
 # Home page
 @app.route("/")
