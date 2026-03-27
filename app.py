@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import pickle
 import sqlite3
-from pyngrok import ngrok
+
 
 app = Flask(__name__)
 
@@ -49,7 +49,4 @@ def history():
 
 # Main run (ngrok + Flask)
 if __name__ == "__main__":
-    public_url = ngrok.connect(5000)
-    print("🌍 Public URL:", public_url)
-
-    app.run(port=5000)
+    app.run(host="0.0.0.0",port=10000)
